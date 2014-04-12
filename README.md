@@ -1,5 +1,5 @@
 # Number to text (JavaScript)
-Converts a numeric value to text
+It converts a numeric value to text.
 
 ###Locale
  - us_US
