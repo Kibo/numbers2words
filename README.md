@@ -11,5 +11,5 @@ Just create a locale file for another language.
  - Range: 0...999999999
  
 ###Example
-1234 -> one thousand two hundred thirty four
-1234 -> tisícdvěstětřicetčtyři
+ - 1234 -> one thousand two hundred thirty four
+ - 1234 -> tisícdvěstětřicetčtyři
