@@ -1,1 +1,101 @@
-<!-- TODO -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>	
+		<script type="text/javascript" src="../source/number2words.js"></script>	
+		<script>
+			window.onload = function( ) {
+								
+				test( "tokenize", function( ) {
+					var convertor = new T2W();					
+					equal( convertor.tokenize(123, 3).length, 1);
+					equal( convertor.tokenize(123456, 2 ).length, 3);
+					equal( convertor.tokenize(123456789, 1).length, 9);
+					equal( convertor.tokenize(1234567891, 3).length, 4);	
+					
+					deepEqual( convertor.tokenize(123456789, 3), [789,456,123]);					
+				} );
+				
+				test( "toWords", function( ) {
+					
+					var locale = {						
+						translate:function ( numbers, order ){
+							console.log(numbers, order);
+							return order;
+						}						
+					};
+					
+					var convertor = new T2W(locale);
+					deepEqual( convertor.toWords(123456789), [2,1,0]);															
+				} );
+																
+var LOCALE = {
+    ones:["nula", "jedna", "dvě", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět"],
+    teens:["deset", "jedenáct", "dvanáct", "třináct", "čtrnáct", "patnáct", "šestnáct", "sedmnáct", "osmnáct", "devatenáct"],
+    tens:["", "deset", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát"],    
+    hundreds:["set", "sto", "stě", "sta", "sta", "set", "set", "set", "set", "set"],
+    thousends:["tisíc", "tisíce", "tisíce", "tisíce", "tisíc", "tisíc", "tisíc", "tisíc", "tisíc"]          
+};
+
+// jeden tisíc, jedno sto, jedna
+
+var number = 25312;
+console.log( number );
+
+var tokens = [];
+while( number ){    
+    tokens.push( number % 1000 );
+    number = parseInt( number / 1000, 10 );
+    
+     //tokens.push( number % 10 );
+     //number = parseInt( number / 10, 10 );
+}
+
+console.log(tokens);
+
+// iterate array from the back
+for(var i = tokens.length; i-- > 0; ){
+	 var single = [];                  
+	 
+    single.push( Math.floor( tokens[i] / 100 ) );
+    single.push( Math.floor( tokens[i] / 10 ) % 10);
+    single.push( tokens[i] % 10);   
+                     
+    console.log ( single  + " | " + LOCALE.ones[single[0]] + LOCALE.hundreds[single[0]] + " " + LOCALE.tens[single[1]] + " " + LOCALE.ones[single[2]]);                    
+}
+
+function write( number, order ){
+	
+}
+
+/*
+ while ( arr.length ) {
+            str = (function( a ) {
+                var x = Math.floor( a / 100 ),
+                    y = Math.floor( a / 10 ) % 10,
+                    z = a % 10;
+
+                return ( x > 0 ? ones[x] + ' hundred ' : '' ) +
+                       ( y >= 2 ? tens[y] + ' ' + ones[z] : ones[10*y + z] );
+            })( arr.shift() ) + sep[i++] + str;
+        } 
+*/
+			
+			};
+			// onload
+		</script>
+	</head>
+	<body>
+		<h1 id="qunit-header">M2W</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+		</div>
+	</body>
+</html>
