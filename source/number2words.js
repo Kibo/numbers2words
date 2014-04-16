@@ -3,12 +3,19 @@
  * @class
  * @public
  * @constructor
- * @param {Object} locale
- * @param {number} tokenLength
+ * @param {String} localeName 
  */
-var T2W = function(locale, tokenLength) {
-	this.tokenLength = tokenLength || 3;
-	this.locale = locale;
+var T2W = function( localeName ) {	
+	if(typeof(this._locales[localeName]) == 'undefined' || this._locales[localeName] == null){
+		throw {
+			name : "LocaleNameException",
+			message : "Locale is not exist.",
+			obj:localeName
+		};	
+	}
+			
+	this._locale = localeName;	
+	this._tokenLength = T2W.DEFAULT_LENGTH_OF_TOKEN;
 };
 
 /**
@@ -19,6 +26,13 @@ var T2W = function(locale, tokenLength) {
 T2W.RADIX = 10;
 
 /**
+ * Default length of token
+ * @constant
+ * @type {number}
+ */
+T2W.DEFAULT_LENGTH_OF_TOKEN = 3;
+
+/**
  * Translate number to words
  * @public
  * @param {integer} value
@@ -27,22 +41,13 @@ T2W.RADIX = 10;
  * this.toWords( 1234 )
  * // one thousand two hundred thirty four
  */
-T2W.prototype.toWords = function( number ){
-		
-	if (!this._isLocaleValid( this.locale )) {
-		throw {
-			name : "ValidationException",
-			message : "Locale is not valid.",
-			obj:locale
-		};
-	}
-	
-	var tokens = this.tokenize(number, this.tokenLength);
+T2W.prototype.toWords = function( number ){		
+	var tokens = this.tokenize(number, this._tokenLength);
 	var words = [];
 		
 	// iterate array from the back	
 	for(var i = tokens.length; i-- > 0; ){
-		words.push(this.locale.translate( this.tokenize(tokens[i], 1), i));			
+		words.push(this._locales[this._locale].translate( this.tokenize(tokens[i], 1), i));			
 	}
 	
 	return words;
@@ -65,6 +70,10 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 		};
 	}
 	
+	if(number === 0){
+		return [0];
+	}
+	
 	var tokens = [];
 	var base = Math.pow( T2W.RADIX, tokenLength );
 	while( number ){    
@@ -75,13 +84,18 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 };
 
 /**
- * Check if locale is valid
- * @private
- * @param {Object} locale
- * @return {boolean}
+ * Get array with default value
+ * @param {*} val
+ * @param {number} length
+ * @return {array}
  */
-T2W.prototype._isLocaleValid = function(locale){
-	// TODO
-	return true;
+T2W.prototype.initArray = function( val, length ){
+	
 };
+
+/**
+ * Available locales
+ * @private
+ */
+T2W.prototype._locales = {};
 
