@@ -1,18 +1,20 @@
 T2W.prototype._locales[ 'cs_CZ' ] = {
-
+	
+	TOKEN_LENGTH:3,
+	
 	SINGLE_INDEX: 0,
 	TENS_INDEX: 1,
 	HUNDRED_INDEX: 2,
 
-	dictionary: {
-		zero:		"nula",		
+	dictionary: {		
 		ones:		[ "", "jedna", "dvě", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět" ],
 		teens:		[ "deset", "jedenáct", "dvanáct", "třináct", "čtrnáct", "patnáct", "šestnáct", "sedmnáct", "osmnáct", "devatenáct" ],
 		tens:		[ "", "", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát" ],
 		hundreds:	[ "", "sto", "dvěstě", "třista", "čtyřista", "pětset", "šestset", "sedmset", "osmset", "devětset" ],
 		
-		thousends: [ "tisíc", "tisíce", "tisíce", "tisíce", "tisíc", "tisíc", "tisíc", "tisíc", "tisíc" ],
-		radix: [ "", "tisíc", "stotisíc", "milión" ]
+		thousends: [ "jedentisíc", "dvatisíce", "třitisíce", "čtyřitisíce", "pěttisíc", "šesttisíc", "sedmtisíc", "osmtisíc", "devěttisíc" ],		
+		millions: [ "jedenmilión", "dvamilióny", "třimilióny", "čtyřimilióny", "pětmiliónů", "šestmiliónů", "sedmmiliónů", "osmmiliónů", "devěmiliónů"],
+		radix:["", "tisíc", "miliónů"]
 	},
 
 	/**
@@ -21,10 +23,28 @@ T2W.prototype._locales[ 'cs_CZ' ] = {
 	 * @param {number} index
 	 * @return {string}
 	 */
-	translate: function( numbers, index ) {	
+	translate: function( numbers ) {
+		
+		// TODO check max value
+		
+		var words = '';
+		for(var idx = 0, max = numbers.length; idx < max; idx++){				
+			words +=  this._getThreeDigits( this.parent.tokenize( numbers[idx], 1 ), idx);	
+		}
+		
+		return words;								
+	},
+	
+	/**
+	 * TODO
+ 	 * @param {Array} numbers
+ 	 * @param {number} index
+ 	 * @return {string}
+	 */
+	_getThreeDigits:function(numbers, index){
 		
 		if(numbers[this.SINGLE_INDEX] === 0 && numbers.length === 1){
-			return this.dictionary.zero;
+			return "nula"; // TODO
 		}
 										
 		var h = '';
@@ -48,7 +68,7 @@ T2W.prototype._locales[ 'cs_CZ' ] = {
 			s = this._getSingles( numbers[this.SINGLE_INDEX] );
 		}
 									
-		return h + t + s;
+		return h + t + s;		
 	},
 
 	_getSingles: function( number ) {			
@@ -62,18 +82,9 @@ T2W.prototype._locales[ 'cs_CZ' ] = {
 	_getTeens: function(number){
 		return this.dictionary.teens[ number ];
 	},
-
-	/**
-	 * @private
-	 * @param {number} number
-	 * @return {string}
-	 */
+	
 	_getHundreds: function( number ) {		
 		return this.dictionary.hundreds[ number ];
-	},
-	
-	_getRadix:function(index){
-		return this.dictionary.radix[index];
-	}
+	}	
 };
 

@@ -17,40 +17,31 @@
 					equal( convertor.tokenize(123456789, 1).length, 9);
 					equal( convertor.tokenize(1234567891, 3).length, 4);	
 					
+					deepEqual( convertor.tokenize(123456789, 1), [9,8,7,6,5,4,3,2,1]);
 					deepEqual( convertor.tokenize(123456789, 3), [789,456,123]);					
 				} );
 				
 				test( "toWords", function( ) {									
 					var convertor = new T2W("cs_CZ");
-					deepEqual( convertor.toWords(0), ["nula"]);	
-					deepEqual( convertor.toWords(1), ["jedna"]);
-					deepEqual( convertor.toWords(9), ["devět"]);														
-					deepEqual( convertor.toWords(10), ["deset"]);
-					deepEqual( convertor.toWords(11), ["jedenáct"]);
-					deepEqual( convertor.toWords(19), ["devatenáct"]);
-					deepEqual( convertor.toWords(20), ["dvacet"]);
-					deepEqual( convertor.toWords(21), ["dvacetjedna"]);
-					deepEqual( convertor.toWords(99), ["devadesátdevět"]);
-					deepEqual( convertor.toWords(100), ["sto"]);
-					deepEqual( convertor.toWords(101), ["stojedna"]);
-					deepEqual( convertor.toWords(109), ["stodevět"]);
-					deepEqual( convertor.toWords(110), ["stodeset"]);
-					deepEqual( convertor.toWords(111), ["stojedenáct"]);
-					deepEqual( convertor.toWords(119), ["stodevatenáct"]);
-					deepEqual( convertor.toWords(199), ["stodevadesátdevět"]);
-					deepEqual( convertor.toWords(999), ["devětsetdevadesátdevět"]);
+					deepEqual( convertor.toWords(0), "nula");	
+					deepEqual( convertor.toWords(1), "jedna");
+					deepEqual( convertor.toWords(9), "devět");														
+					deepEqual( convertor.toWords(10), "deset");
+					deepEqual( convertor.toWords(11), "jedenáct");
+					deepEqual( convertor.toWords(19), "devatenáct");
+					deepEqual( convertor.toWords(20), "dvacet");
+					deepEqual( convertor.toWords(21), "dvacetjedna");
+					deepEqual( convertor.toWords(99), "devadesátdevět");
+					deepEqual( convertor.toWords(100), "sto");
+					deepEqual( convertor.toWords(101), "stojedna");
+					deepEqual( convertor.toWords(109), "stodevět");
+					deepEqual( convertor.toWords(110), "stodeset");
+					deepEqual( convertor.toWords(111), "stojedenáct");
+					deepEqual( convertor.toWords(119), "stodevatenáct");
+					deepEqual( convertor.toWords(199), "stodevadesátdevět");
+					deepEqual( convertor.toWords(999), "devětsetdevadesátdevět");
 				} );
 																
-var LOCALE = {
-    ones:["nula", "jedna", "dvě", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět"],
-    teens:["deset", "jedenáct", "dvanáct", "třináct", "čtrnáct", "patnáct", "šestnáct", "sedmnáct", "osmnáct", "devatenáct"],
-    tens:["", "deset", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát"],    
-    hundreds:["set", "sto", "stě", "sta", "sta", "set", "set", "set", "set", "set"],
-    thousends:["tisíc", "tisíce", "tisíce", "tisíce", "tisíc", "tisíc", "tisíc", "tisíc", "tisíc"]          
-};
-
-// jeden tisíc, jedno sto, jedna
-
 /*
 var number = 25312;
 console.log( number );
