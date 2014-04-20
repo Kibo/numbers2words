@@ -4,7 +4,7 @@ It converts a numeric value to words.
 ##Example
 ```
 var translator = new T2W("EN_US");
-// one thousand two hundred thirty four
+// one thousand, two hundred thirty four
 translator.toWords(1234)
 ```
 
@@ -12,7 +12,7 @@ translator.toWords(1234)
  - en_US
  - cs_CZ (0...999999999)
  
-**Anyone can implements to your locale vocabulary**. For additional locale send pull request with locale file + tests.
+**Anyone can implement your locale vocabulary**. For additional locale send pull request with locale file + tests.
  
 **Locale object**
 The locale object must implement method **translate**.
