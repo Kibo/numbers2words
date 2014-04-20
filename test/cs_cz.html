@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>	
+		<script type="text/javascript" src="../source/number2words.js"></script>
+		<script type="text/javascript" src="../source/locales/cs_CZ.js"></script>	
+		<script>
+			window.onload = function( ) {												
+				test( "toWords", function( ) {									
+					var translator = new T2W("CS_CZ");
+					
+					equal( translator.toWords(0), "nula");	
+					equal( translator.toWords(1), "jedna");
+					equal( translator.toWords(9), "devět");														
+					
+					equal( translator.toWords(10), "deset");
+					equal( translator.toWords(11), "jedenáct");
+					equal( translator.toWords(19), "devatenáct");
+					equal( translator.toWords(20), "dvacet");
+					equal( translator.toWords(21), "dvacetjedna");
+					equal( translator.toWords(99), "devadesátdevět");
+					
+					equal( translator.toWords(100), "sto");
+					equal( translator.toWords(101), "stojedna");
+					equal( translator.toWords(109), "stodevět");
+					equal( translator.toWords(110), "stodeset");
+					equal( translator.toWords(111), "stojedenáct");
+					equal( translator.toWords(119), "stodevatenáct");
+					equal( translator.toWords(199), "stodevadesátdevět");
+					equal( translator.toWords(999), "devětsetdevadesátdevět");
+					
+					equal( translator.toWords(1000), "jedentisíc");
+					equal( translator.toWords(1001), "jedentisícjedna");
+					equal( translator.toWords(1011), "jedentisícjedenáct");
+					equal( translator.toWords(1021), "jedentisícdvacetjedna");					
+					equal( translator.toWords(9000), "devěttisíc");
+					equal( translator.toWords(9001), "devěttisícjedna");
+					equal( translator.toWords(9011), "devěttisícjedenáct");
+					equal( translator.toWords(9021), "devěttisícdvacetjedna");	
+					
+					equal( translator.toWords(11000), "jedenácttisíc");
+					equal( translator.toWords(11001), "jedenácttisícjedna");
+					equal( translator.toWords(11011), "jedenácttisícjedenáct");
+					equal( translator.toWords(11021), "jedenácttisícdvacetjedna");					
+					equal( translator.toWords(99000), "devadesátdevěttisíc");
+					equal( translator.toWords(99001), "devadesátdevěttisícjedna");
+					equal( translator.toWords(99011), "devadesátdevěttisícjedenáct");
+					equal( translator.toWords(99021), "devadesátdevěttisícdvacetjedna");
+					
+					equal( translator.toWords(1000000), "jedenmilión");
+					equal( translator.toWords(1000001), "jedenmiliónjedna");
+					equal( translator.toWords(1000011), "jedenmiliónjedenáct");
+					equal( translator.toWords(1000021), "jedenmilióndvacetjedna");
+					equal( translator.toWords(1010000), "jedenmilióndesettisíc");
+					equal( translator.toWords(1010001), "jedenmilióndesettisícjedna");
+					equal( translator.toWords(1110000), "jedenmiliónstodesettisíc");
+					equal( translator.toWords(11000000), "jedenáctmiliónů");
+					equal( translator.toWords(21000000), "dvacetjednamiliónů");
+					equal( translator.toWords(999999999), "devětsetdevadesátdevětmiliónůdevětsetdevadesátdevěttisícdevětsetdevadesátdevět");														
+				});
+			};// onload
+		</script>
+	</head>
+	<body>
+		<h1 id="qunit-header">CS_CZ Locale</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+		</div>
+	</body>
+</html>

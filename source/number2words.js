@@ -6,16 +6,30 @@
  * @param {String} localeName 
  */
 var T2W = function( localeName ) {	
-	if(typeof(this._locales[localeName]) == 'undefined' || this._locales[localeName] == null){
+	var type = localeName, translator;
+	
+	// error if the constructor doesn't exist
+	if( typeof T2W[ type ] !== "function" ) {
 		throw {
-			name : "LocaleException",
-			message : "Locale with name '" + localeName + "' is not exist."		
-		};	
+			name : "Error",
+			message : "Locale with name '" + type + "' doesn't exist."		
+		};
 	}
-			
-	this._locale = localeName;
-	this._locales[this._locale].parent = this;
-	this._tokenLength = this._locales[this._locale].TOKEN_LENGTH || T2W.DEFAULT_TOKEN_LENGTH; 		
+		
+	translator = new T2W[ type ]();
+	translator._tokenLength = T2W[ type ].TOKEN_LENGTH | T2W.DEFAULT_TOKEN_LENGTH;
+	
+	// Extends
+	// Copy prototype methods from T2W to translator object 
+	for (var key in T2W.prototype) {
+		if( T2W.prototype.hasOwnProperty( key ) ) {
+			if( translator[key] !== 'function' ){
+				T2W[ type ].prototype[key] = T2W.prototype[key];
+			}			
+		}				
+	}
+	
+	return translator;	
 };
 
 /**
@@ -32,6 +46,28 @@ T2W.RADIX = 10;
  */
 T2W.DEFAULT_TOKEN_LENGTH = 1;
 
+
+/**
+ * Single index
+ * @constant
+ * @type {number}
+ */
+T2W.SINGLE_INDEX = 0;
+
+/**
+ * Ten index
+ * @constant
+ * @type {number}
+ */
+T2W.TEN_INDEX = 1;
+
+/**
+ * Hundred index
+ * @constant
+ * @type {number}
+ */
+T2W.HUNDRED_INDEX = 2;
+
 /**
  * Translate number to words
  * @public
@@ -43,14 +79,14 @@ T2W.DEFAULT_TOKEN_LENGTH = 1;
  */
 T2W.prototype.toWords = function( number ){
 	
-	if(typeof this._locales[this._locale].translate != 'function'){
+	if(typeof this.translate != 'function'){
 		throw {
-			name:"LocaleExceprion",
-			message: "Locale '" + this._locale + "' has not function with name 'translate'."			
+			name:"Error",
+			message: "The function 'translate' is not implemented."			
 		};
 	}
-			
-	return this._locales[this._locale].translate( this.tokenize(number, this._tokenLength));
+				
+	return this.translate( this.tokenize(number, this._tokenLength));
 };
 
 /**
@@ -58,7 +94,10 @@ T2W.prototype.toWords = function( number ){
  * @param {number} number
  * @param {number} tokenLength - count of numbers in one token
  * @return {Array}
- * 
+ * @example 
+ * this.tokenize( 1234, 1 ); // [4,3,2,1]
+ * this.tokenize( 1234, 2 ); // [34,12]
+ * this.tokenize( 1234, 3 ); // [234,1]
  */
 T2W.prototype.tokenize = function( number, tokenLength ){
 	
@@ -81,10 +120,3 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 	}
 	return tokens;
 };
-
-/**
- * Available locales
- * @private
- */
-T2W.prototype._locales = {};
-

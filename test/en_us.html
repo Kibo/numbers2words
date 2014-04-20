@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>	
+		<script type="text/javascript" src="../source/number2words.js"></script>
+		<script type="text/javascript" src="../source/locales/en_US.js"></script>	
+		<script>
+			window.onload = function( ) {												
+				test( "toWords", function( ) {									
+					var translator = new T2W("EN_US");
+					
+					equal( translator.toWords(0), "zero");	
+					equal( translator.toWords(1), "one");
+					equal( translator.toWords(9), "nine");														
+					
+					equal( translator.toWords(10), "ten");	
+					equal( translator.toWords(11), "eleven");
+					equal( translator.toWords(19), "nineteen");
+					equal( translator.toWords(20), "twenty");
+					equal( translator.toWords(21), "twenty one");
+					equal( translator.toWords(99), "ninety nine");
+					
+					equal( translator.toWords(100), "one hundred");
+					equal( translator.toWords(101), "one hundred one");
+					equal( translator.toWords(109), "one hundred nine");
+					equal( translator.toWords(110), "one hundred ten");
+					equal( translator.toWords(111), "one hundred eleven");
+					equal( translator.toWords(119), "one hundred nineteen");
+					equal( translator.toWords(199), "one hundred ninety nine");
+					equal( translator.toWords(999), "nine hundred ninety nine");
+					
+					equal( translator.toWords(1000), "one thousand");
+					equal( translator.toWords(1001), "one thousand one");
+					equal( translator.toWords(1011), "one thousand eleven");
+					equal( translator.toWords(1021), "one thousand twenty one");					
+					equal( translator.toWords(9000), "nine thousand");
+					equal( translator.toWords(9001), "nine thousand one");
+					equal( translator.toWords(9011), "nine thousand eleven");
+					equal( translator.toWords(9021), "nine thousand twenty one");	
+					
+					equal( translator.toWords(11000), "eleven thousend");
+					equal( translator.toWords(11001), "eleven thousend one");
+					equal( translator.toWords(11011), "eleven thousend eleven");
+					equal( translator.toWords(11021), "eleven thousend twenty one");					
+					equal( translator.toWords(99000), "ninety nine thousend");
+					equal( translator.toWords(99001), "ninety nine thousend one");
+					equal( translator.toWords(99011), "ninety nine thousend eleven");
+					equal( translator.toWords(99021), "ninety nine twenty one");
+					
+					equal( translator.toWords(1000000), "one million");
+					equal( translator.toWords(1000001), "one million one");
+					equal( translator.toWords(1000011), "one million eleven");
+					equal( translator.toWords(1000021), "one million twenty one");
+					equal( translator.toWords(1010000), "one million ten thousend");
+					equal( translator.toWords(1010001), "one million ten thousend one");
+					equal( translator.toWords(1110000), "one million one hundred ten thousend");
+					equal( translator.toWords(11000000), "eleven million");
+					equal( translator.toWords(21000000), "twenty one million");
+					equal( translator.toWords(999999999), "nine hundred ninety nine million nine hundred ninety nine thousend nine hundred ninety nine");														
+				});
+			};// onload
+		</script>
+	</head>
+	<body>
+		<h1 id="qunit-header">EN_US Locale</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+		</div>
+	</body>
+</html>

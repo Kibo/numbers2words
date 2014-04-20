@@ -1,19 +1,30 @@
 # Number to Words (JavaScript)
 It converts a numeric value to words.
 
-There are a lot of exceptions in the inflection of words in different languages. 
-So I decided to use the [Strategy design pattern](http://en.wikipedia.org/wiki/Strategy_pattern) for this type of problem.
-Anyone can implements to your locale vocabulary.
+##Example
+```
+var translator = new T2W("EN_US");
+// one thousand two hundred thirty four
+translator.toWords(1234)
+```
 
-###Locale
- - us_US
- - cs_CZ
+##Now available locales
+ - en_US
+ - cs_CZ (0...999999999)
  
-Just create a locale file for another language.
+**Anyone can implements to your locale vocabulary**. For additional locale send pull request with locale file + tests.
  
-###Example
- - 1234 -> one thousand two hundred thirty four
- - 1234 -> tisícdvěstětřicetčtyři
- 
-###Locale
-TODO
+**Locale object**
+The locale object must implement method **translate**.
+```
+/**
+ * Translate numbers to words
+ * @public
+ * @param {array} numbers
+ * @param {number} index
+ * @return {string}
+ */
+translate( numbers, index){
+ // implement it
+};
+```
