@@ -69,6 +69,7 @@ T2W.CS_CZ.prototype.translate = function( numbers ) {
 
 /**
  * Converts first three numbers to words.
+ * @private
  * It solves exceptions in the Czech language.
  * @param {Array} numbers
  * @param {number} index

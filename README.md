@@ -9,8 +9,8 @@ translator.toWords(1234)
 ```
 
 ##Now available locales
- - en_US
- - cs_CZ (0...999999999)
+ - en_US	(0...999999999)
+ - cs_CZ	(0...999999999)
  
 **You can implement your locale vocabulary**. For additional locale send pull request with locale file + tests.
  
