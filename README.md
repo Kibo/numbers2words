@@ -4,7 +4,7 @@ It converts a numeric value to words.
 ##Example
 ```
 var translator = new T2W("EN_US");
-// one thousand, two hundred thirty four
+// one thousand two hundred thirty-four
 translator.toWords(1234)
 ```
 
