@@ -1,7 +1,7 @@
 # Numbers to Words (JavaScript)
 It converts a numeric value to words. 
 
-You can use as [standalone js library](https://github.com/Kibo/numbers2words/tree/master/build) or as **Node module**. 
+You can use it as [standalone js library](https://github.com/Kibo/numbers2words/tree/master/build) or as **Node module**. 
 
 ##Example
 ```
