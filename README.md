@@ -1,4 +1,4 @@
-# Number to Words (JavaScript)
+# Numbers to Words (JavaScript)
 It converts a numeric value to words.
 
 ##Example
