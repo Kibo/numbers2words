@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
 		 concat : {
 			dist : {
-				src : ['src/polyfill/*.js', 'src/<%= pkg.name %>.js', 'src/locales/*.js'],
+				src : ['src/polyfill/*.js', 'src/<%= pkg.name %>.js', 'src/locales/*.js','src/node/*.js' ],
 				dest : 'build/<%= pkg.name %>.js'
 			}
 		},
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		uglify : {
 			options : {
 				// the banner is inserted at the top of the output
-				banner : '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+				banner : '/*! <%= pkg.name %> v<%= pkg.version %> */\n'
 			},
 			dist : {
 				files : {

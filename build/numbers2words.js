@@ -130,6 +130,7 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 	return tokens;
 };
 
+
 /**
  * cs_CZ locale
  * @constructor
@@ -454,3 +455,8 @@ T2W.EN_US.prototype._getRadix = function( numbers, index ) {
 			
 	return radix;
 };
+
+// Node exports
+if(module.exports){
+	module.exports = T2W;
+}

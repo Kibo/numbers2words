@@ -121,6 +121,3 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 	return tokens;
 };
 
-if(exports){
-	exports.toWords = T2W.prototype.toWords;
-}
