@@ -11,7 +11,7 @@
 	"main": "build/numner2words.min.js",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/Kibo/numbers2words.git"
+		"url": "git+https://github.com/Kibo/numbers2words.git"
 	},
 	"devDependencies": {
 		"grunt": "^0.4.4",
