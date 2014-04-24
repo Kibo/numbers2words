@@ -131,15 +131,6 @@ T2W.prototype.tokenize = function( number, tokenLength ){
 };
 
 /**
- * Determines whether the passed value is an integer
- * @param {number}
- * @return {boolean}
- */
-T2W.prototype.isInteger = function(){
-	
-};
-
-/**
  * cs_CZ locale
  * @constructor
  */
