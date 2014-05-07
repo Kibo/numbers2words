@@ -39,7 +39,7 @@
 					
 					equal( translator.toWords(1000), "jedentisíc");
 					equal( translator.toWords(1001), "jedentisícjedna");
-					equal( translator.toWords(1002), "jedentisícdva");
+					equal( translator.toWords(1002), "jedentisícdvě");
 					equal( translator.toWords(1011), "jedentisícjedenáct");
 					equal( translator.toWords(1021), "jedentisícdvacetjedna");					
 					equal( translator.toWords(9000), "devěttisíc");
@@ -50,7 +50,8 @@
 					equal( translator.toWords(11000), "jedenácttisíc");
 					equal( translator.toWords(11001), "jedenácttisícjedna");
 					equal( translator.toWords(11011), "jedenácttisícjedenáct");
-					equal( translator.toWords(11021), "jedenácttisícdvacetjedna");					
+					equal( translator.toWords(11021), "jedenácttisícdvacetjedna");
+					equal( translator.toWords(11022), "jedenácttisícdvacetdva");						
 					equal( translator.toWords(99000), "devadesátdevěttisíc");
 					equal( translator.toWords(99001), "devadesátdevěttisícjedna");
 					equal( translator.toWords(99011), "devadesátdevěttisícjedenáct");
@@ -58,6 +59,7 @@
 					
 					equal( translator.toWords(1000000), "jedenmilión");
 					equal( translator.toWords(1000001), "jedenmiliónjedna");
+					equal( translator.toWords(1000002), "jedenmilióndvě");
 					equal( translator.toWords(1000011), "jedenmiliónjedenáct");
 					equal( translator.toWords(1000021), "jedenmilióndvacetjedna");
 					equal( translator.toWords(1010000), "jedenmilióndesettisíc");

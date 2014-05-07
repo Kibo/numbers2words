@@ -187,8 +187,8 @@ T2W.CS_CZ.prototype.translate = function( numbers ) {
 		};	
 	}		
 	
-	// Deal with exceptions	
-	if((numbers[T2W.SINGLE_INDEX] === 0 || numbers[T2W.SINGLE_INDEX] === 2) && numbers.length === 1){
+	// Deal with exceptions - zero	
+	if( numbers[T2W.SINGLE_INDEX] === 0 && numbers.length === 1){
 		return T2W.CS_CZ.DICTIONARY.exceptions[numbers[T2W.SINGLE_INDEX]];
 	}
 		
@@ -227,7 +227,12 @@ T2W.CS_CZ.prototype._getTrio = function(numbers, index){
 	}
 							
 	if( !numbers[ T2W.TEN_INDEX ] ){
-		single = this._getOnes( numbers[T2W.SINGLE_INDEX], T2W.SINGLE_INDEX);
+		single = this._getOnes( numbers[T2W.SINGLE_INDEX], T2W.SINGLE_INDEX );
+	}
+	
+	// Deal with exceptions	- dvě | dva
+	if(!numbers[T2W.HUNDRED_INDEX] && !numbers[ T2W.TEN_INDEX ] && numbers[T2W.SINGLE_INDEX] === 2){
+		single = T2W.CS_CZ.DICTIONARY.exceptions[numbers[T2W.SINGLE_INDEX]];
 	}
 	
 	if(index > 0 && numbers.length === 1){
