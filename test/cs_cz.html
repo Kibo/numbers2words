@@ -15,6 +15,7 @@
 					
 					equal( translator.toWords(0), "nula");	
 					equal( translator.toWords(1), "jedna");
+					equal( translator.toWords(2), "dvě");
 					equal( translator.toWords(9), "devět");														
 					
 					equal( translator.toWords(10), "deset");
@@ -22,19 +23,23 @@
 					equal( translator.toWords(19), "devatenáct");
 					equal( translator.toWords(20), "dvacet");
 					equal( translator.toWords(21), "dvacetjedna");
+					equal( translator.toWords(22), "dvacetdva");
 					equal( translator.toWords(99), "devadesátdevět");
 					
 					equal( translator.toWords(100), "sto");
 					equal( translator.toWords(101), "stojedna");
+					equal( translator.toWords(102), "stodva");
 					equal( translator.toWords(109), "stodevět");
 					equal( translator.toWords(110), "stodeset");
 					equal( translator.toWords(111), "stojedenáct");
 					equal( translator.toWords(119), "stodevatenáct");
+					equal( translator.toWords(142), "stočtyřicetdva");
 					equal( translator.toWords(199), "stodevadesátdevět");
 					equal( translator.toWords(999), "devětsetdevadesátdevět");
 					
 					equal( translator.toWords(1000), "jedentisíc");
 					equal( translator.toWords(1001), "jedentisícjedna");
+					equal( translator.toWords(1002), "jedentisícdva");
 					equal( translator.toWords(1011), "jedentisícjedenáct");
 					equal( translator.toWords(1021), "jedentisícdvacetjedna");					
 					equal( translator.toWords(9000), "devěttisíc");

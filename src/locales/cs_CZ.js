@@ -9,10 +9,9 @@ T2W.CS_CZ = function(){};
  * @constant
  * @type {Object}
  */
-T2W.CS_CZ.DICTIONARY = {
-	zero		:"nula",
+T2W.CS_CZ.DICTIONARY = {	
 	ones		:[
-					[ "", "jedna", "dvě", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět" ],
+					[ "", "jedna", "dva", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět" ],
 					[ "", "jedentisíc", "dvatisíce", "třitisíce", "čtyřitisíce", "pěttisíc", "šesttisíc", "sedmtisíc", "osmtisíc", "devěttisíc" ],
 					[ "", "jedenmilión", "dvamilióny", "třimilióny", "čtyřimilióny", "pětmiliónů", "šestmiliónů", "sedmmiliónů", "osmmiliónů", "devěmiliónů"]					
 				],
@@ -20,7 +19,8 @@ T2W.CS_CZ.DICTIONARY = {
 	tens		:[ "", "", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát" ],
 	hundreds	:[ "", "sto", "dvěstě", "třista", "čtyřista", "pětset", "šestset", "sedmset", "osmset", "devětset" ],
 
-	radix:["", "tisíc", "miliónů"]	
+	radix:["", "tisíc", "miliónů"],
+	exceptions	:["nula", "", "dvě"]	
 };
 
 /**
@@ -54,11 +54,11 @@ T2W.CS_CZ.prototype.translate = function( numbers ) {
 		};	
 	}		
 	
-	// Deal with zero value	
-	if(numbers[T2W.SINGLE_INDEX] === 0 && numbers.length === 1){
-		return T2W.CS_CZ.DICTIONARY.zero;
+	// Deal with exceptions	
+	if((numbers[T2W.SINGLE_INDEX] === 0 || numbers[T2W.SINGLE_INDEX] === 2) && numbers.length === 1){
+		return T2W.CS_CZ.DICTIONARY.exceptions[numbers[T2W.SINGLE_INDEX]];
 	}
-	
+		
 	var words = [];
 	for(var idx = 0, max = numbers.length; idx < max; idx++){				
 		words.unshift( this._getTrio( this.tokenize( numbers[idx], 1 ), idx) );	
@@ -89,8 +89,8 @@ T2W.CS_CZ.prototype._getTrio = function(numbers, index){
 		ten = this._getTeens( numbers[T2W.SINGLE_INDEX]);			
 	}
 						
-	if( numbers[ T2W.TEN_INDEX ] >=2 ){
-		ten = this._getTens( numbers[T2W.TEN_INDEX]) + this._getOnes( numbers[T2W.SINGLE_INDEX], T2W.SINGLE_INDEX); 	
+	if( numbers[ T2W.TEN_INDEX ] >=2 ){		
+		ten = this._getTens( numbers[T2W.TEN_INDEX]) + this._getOnes( numbers[T2W.SINGLE_INDEX], T2W.SINGLE_INDEX);	
 	}
 							
 	if( !numbers[ T2W.TEN_INDEX ] ){
@@ -110,7 +110,7 @@ T2W.CS_CZ.prototype._getTrio = function(numbers, index){
  * helper method to access the dictionary
  * @private
  * @param {number} number
- * @param {number} index
+ * @param {number} index 
  * @return {string}
  */
 T2W.CS_CZ.prototype._getOnes = function( number, index ) {			
