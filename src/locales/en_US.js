@@ -12,7 +12,7 @@ T2W.EN_US = function(){};
 T2W.EN_US.DICTIONARY = {
 	zero		:"zero",
 	ones		:[ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ],
-	teens		:[ "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eightteen", "nineteen" ],
+	teens		:[ "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ],
 	tens		:[ "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" ],
 	hundred		:"hundred",
 	radix		:["", "thousand", "million"],
