@@ -1,4 +1,4 @@
 // Node exports
-if(module.exports){
+if(typeof module !== 'undefined' && module.exports){
 	module.exports = T2W;
 }
