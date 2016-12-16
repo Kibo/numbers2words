@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+        <script type="text/javascript" src="../src/polyfill/polyfill.js"></script>
+        <script type="text/javascript" src="../src/numbers2words.js"></script>
+        <script type="text/javascript" src="../src/locales/de_DE.js"></script>
+        <script>
+            window.onload = function( ) {
+                test( "toWords", function( ) {
+                    var translator = new T2W("DE_DE");
+
+                    equal( translator.toWords(0), "Null");
+                    equal( translator.toWords(1), "Eins");
+                    equal( translator.toWords(9), "Neun");
+
+                    equal( translator.toWords(10), "Zehn");
+                    equal( translator.toWords(11), "Elf");
+                    equal( translator.toWords(19), "Neunzehn");
+                    equal( translator.toWords(20), "Zwanzig");
+                    equal( translator.toWords(21), "Einundzwanzig");
+                    equal( translator.toWords(22), "Zweiundzwanzig");
+                    equal( translator.toWords(99), "Neunundneunzig");
+
+                    equal( translator.toWords(100), "Einhundert");
+                    equal( translator.toWords(101), "Einhunderteins");
+                    equal( translator.toWords(109), "Einhundertneun");
+                    equal( translator.toWords(110), "Einhundertzehn");
+                    equal( translator.toWords(111), "Einhundertelf");
+                    equal( translator.toWords(119), "Einhundertneunzehn");
+                    equal( translator.toWords(199), "Einhundertneunundneunzig");
+                    equal( translator.toWords(999), "Neunhundertneunundneunzig");
+
+                    equal( translator.toWords(1000), "Eintausend");
+                    equal( translator.toWords(1001), "Eintausendeins");
+                    equal( translator.toWords(1011), "Eintausendelf");
+                    equal( translator.toWords(1021), "Eintausendeinundzwanzig");
+                    equal( translator.toWords(9000), "Neuntausend");
+                    equal( translator.toWords(9001), "Neuntausendeins");
+                    equal( translator.toWords(9011), "Neuntausendelf");
+                    equal( translator.toWords(9021), "Neuntausendeinundzwanzig");
+                    equal( translator.toWords(9999), "Neuntausendneunhundertneunundneunzig");
+
+                    equal( translator.toWords(11000), "Elftausend");
+                    equal( translator.toWords(11001), "Elftausendeins");
+                    equal( translator.toWords(11011), "Elftausendelf");
+                    equal( translator.toWords(11021), "Elftausendeinundzwanzig");
+                    equal( translator.toWords(99000), "Neunundneunzigtausend");
+                    equal( translator.toWords(99001), "Neunundneunzigtausendeins");
+                    equal( translator.toWords(99011), "Neunundneunzigtausendelf");
+                    equal( translator.toWords(99021), "Neunundneunzigtausendeinundzwanzig");
+
+                    equal( translator.toWords(1000000), "Eine Million");
+                    equal( translator.toWords(1000001), "Eine Million Eins");
+                    equal( translator.toWords(1000011), "Eine Million Elf");
+                    equal( translator.toWords(1000021), "Eine Million Einundzwanzig");
+                    equal( translator.toWords(1010000), "Eine Million Zehntausend");
+                    equal( translator.toWords(1010001), "Eine Million Zehntausendeins");
+                    equal( translator.toWords(1021001), "Eine Million Einundzwanzigtausendeins");
+                    equal( translator.toWords(1110000), "Eine Million Einhundertzehntausend");
+                    equal( translator.toWords(11000000), "Elf Millionen");
+                    equal( translator.toWords(21000000), "Einundzwanzig Millionen");
+                    equal( translator.toWords(999999999), "Neunhundertneunundneunzig Millionen Neunhundertneunundneunzigtausendneunhundertneunundneunzig");
+                });
+            };// onload
+        </script>
+    </head>
+    <body>
+        <h1 id="qunit-header">DE_DE Locale</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture">
+            test markup, will be hidden
+        </div>
+    </body>
+</html>
