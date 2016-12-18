@@ -1,0 +1,25 @@
+{
+  "name": "numbers2words",
+  "description": "Numbers to words converter.",
+  "main": "./build/numbers2words.min.js",
+  "authors": [
+    "Tomas Jurman <tomasjurman@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "number",
+    "word",
+    "converter"
+  ],
+  "homepage": "https://github.com/Kibo/numbers2words.git",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "node_modules",
+    "src",
+    "test",
+    "gruntfile.json",
+    "package.json"
+  ]
+}
