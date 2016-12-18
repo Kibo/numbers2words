@@ -10,7 +10,7 @@ T2W.DE_DE = function(){};
  * @type {Object}
  */
 T2W.DE_DE.DICTIONARY = {
-    zero            : "Null",
+    zero            : "null",
     ones            : ["", ["eins", "ein", "eine"], "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"],
     teens           : ["zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"],
     tens            : ["", "", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"],
@@ -58,13 +58,6 @@ T2W.DE_DE.prototype.translate = function( numbers ) {
     var words = [];
     for (var idx = 0, max = numbers.length; idx < max; idx++) {
         words.unshift( this._getTrio( this.tokenize( numbers[idx], 1 ), idx, max, words));
-    }
-
-    for (idx = 0, max = words.length; idx < max; idx++) {
-        // The first letter of each word is written in uppercase
-        if (max === 1 || idx !== max - 1 || !words[idx - 1]) {
-            words[idx] = words[idx].substr(0, 1).toUpperCase() + words[idx].substr(1);
-        }
     }
 
     return words.join("");
