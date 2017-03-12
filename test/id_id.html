@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>	
+		<script type="text/javascript" src="../src/polyfill/polyfill.js"></script>
+		<script type="text/javascript" src="../src/numbers2words.js"></script>
+		<script type="text/javascript" src="../src/locales/id_ID.js"></script>	
+		<script>
+			window.onload = function( ) {												
+				test( "toWords", function( ) {									
+					var translator = new T2W("ID_ID");
+					
+					equal( translator.toWords(0), "nol");	
+					equal( translator.toWords(1), "satu");
+					equal( translator.toWords(9), "sembilan");														
+					
+					equal( translator.toWords(10), "sepuluh");	
+					equal( translator.toWords(11), "sebelas");
+					equal( translator.toWords(19), "sembilan belas");
+					equal( translator.toWords(20), "dua puluh");
+					equal( translator.toWords(21), "dua puluh satu");
+					equal( translator.toWords(99), "sembilan puluh sembilan");
+					
+					equal( translator.toWords(100), "seratus");
+					equal( translator.toWords(101), "seratus satu");
+					equal( translator.toWords(109), "seratus sembilan");
+					equal( translator.toWords(110), "seratus sepuluh");
+					equal( translator.toWords(111), "seratus sebelas");
+					equal( translator.toWords(119), "seratus sembilan belas");
+					equal( translator.toWords(199), "seratus sembilan puluh sembilan");
+					equal( translator.toWords(999), "sembilan ratus sembilan puluh sembilan");
+					
+					equal( translator.toWords(1000), "seribu");
+					equal( translator.toWords(1001), "seribu satu");
+					equal( translator.toWords(1011), "seribu sebelas");
+					equal( translator.toWords(1021), "seribu dua puluh satu");					
+					equal( translator.toWords(9000), "sembilan ribu");
+					equal( translator.toWords(9001), "sembilan ribu satu");
+					equal( translator.toWords(9011), "sembilan ribu sebelas");
+					equal( translator.toWords(9021), "sembilan ribu dua puluh satu");	
+					equal( translator.toWords(9999), "sembilan ribu sembilan ratus sembilan puluh sembilan");
+					
+					equal( translator.toWords(11000), "sebelas ribu");
+					equal( translator.toWords(11001), "sebelas ribu satu");
+					equal( translator.toWords(11011), "sebelas ribu sebelas");
+					equal( translator.toWords(11021), "sebelas ribu dua puluh satu");					
+					equal( translator.toWords(99000), "sembilan puluh sembilan ribu");
+					equal( translator.toWords(99001), "sembilan puluh sembilan ribu satu");
+					equal( translator.toWords(99011), "sembilan puluh sembilan ribu sebelas");
+					equal( translator.toWords(99021), "sembilan puluh sembilan ribu dua puluh satu");
+					
+					equal( translator.toWords(1000000), "satu juta");
+					equal( translator.toWords(1000001), "satu juta satu");
+					equal( translator.toWords(1000011), "satu juta sebelas");
+					equal( translator.toWords(1000021), "satu juta dua puluh satu");
+					equal( translator.toWords(1010000), "satu juta sepuluh ribu");
+					equal( translator.toWords(1010001), "satu juta sepuluh ribu satu");					
+					equal( translator.toWords(1021001), "satu juta dua puluh satu ribu satu");					
+					equal( translator.toWords(1110000), "satu juta seratus sepuluh ribu");
+					equal( translator.toWords(11000000), "sebelas juta");
+					equal( translator.toWords(21000000), "dua puluh satu juta");
+					equal( translator.toWords(999999999), "sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan");														
+				});
+			};// onload
+		</script>
+	</head>
+	<body>
+		<h1 id="qunit-header">ID_ID Locale</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+		</div>
+	</body>
+</html>
