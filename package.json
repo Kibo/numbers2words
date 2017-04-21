@@ -1,7 +1,7 @@
 {
 	"name": "numbers2words",
 	"description": "Numbers to words converter.",
-	"version": "0.3.0",
+	"version": "1.4.0",
 	"bugs": {
 		"url": "https://github.com/Kibo/numbers2words/issues"
 	},
