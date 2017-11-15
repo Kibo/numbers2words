@@ -16,7 +16,8 @@ T2W.EN_US.DICTIONARY = {
 	tens		:[ "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" ],
 	hundred		:"hundred",
 	radix		:["", "thousand", "million"],
-	delimiters	:["-", "and"]
+	delimiters	:["-", "and"],
+	signs		:["minus"]
 };
 
 /**
@@ -40,7 +41,7 @@ T2W.EN_US.MAX_NUMBERS = 9;
  * @param {number} index
  * @return {string}
  */
-T2W.EN_US.prototype.translate = function( numbers ) {	
+T2W.EN_US.prototype.translate = function( numbers, sign ) {	
 	
 	// Check max value	
 	if(numbers.length * T2W.EN_US.TOKEN_LENGTH > T2W.EN_US.MAX_NUMBERS){
@@ -59,6 +60,8 @@ T2W.EN_US.prototype.translate = function( numbers ) {
 	for(var idx = 0, max = numbers.length; idx < max; idx++){				
 		words.unshift( this._getTrio( this.tokenize( numbers[idx], 1 ), idx, max));	
 	}
+	
+	if(sign === false) words.unshift( T2W.EN_US.DICTIONARY.signs[0] + " " );
 	
 	return words.join("");								
 };
