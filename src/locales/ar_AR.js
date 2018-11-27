@@ -1,16 +1,16 @@
 
 /**
- * en_US locale
+ * ar_AR locale
  * @constructor
  */
-T2W.EN_US = function(){};
+T2W.AR_AR = function(){};
 
 /**
  * Translator dictionary
  * @constant
  * @type {Object}
  */
-T2W.EN_US.DICTIONARY = {
+T2W.AR_AR.DICTIONARY = {
 	zero		:"صفر",
 	ones		:[ "", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة", "سبعة", "ثمانية", "تسعة" ],
 	teens		:[ "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ],
@@ -25,14 +25,14 @@ T2W.EN_US.DICTIONARY = {
  * @constant
  * @type {number}
  */
-T2W.EN_US.TOKEN_LENGTH = 3;
+T2W.AR_AR.TOKEN_LENGTH = 3;
 
 /**
  * Max numbers for this locale
  * @constant
  * @type {number}
  */
-T2W.EN_US.MAX_NUMBERS = 9;
+T2W.AR_AR.MAX_NUMBERS = 9;
 
 /**
  * Translate numbers to words
@@ -41,19 +41,19 @@ T2W.EN_US.MAX_NUMBERS = 9;
  * @param {number} index
  * @return {string}
  */
-T2W.EN_US.prototype.translate = function( numbers ) {	
+T2W.AR_AR.prototype.translate = function( numbers ) {	
 	
 	// Check max value	
-	if(numbers.length * T2W.EN_US.TOKEN_LENGTH > T2W.EN_US.MAX_NUMBERS){
+	if(numbers.length * T2W.AR_AR.TOKEN_LENGTH > T2W.AR_AR.MAX_NUMBERS){
 		throw {
 			name : "Error",
-			message : "The length of numbers is longer than the maximum value(" + T2W.EN_US.MAX_NUMBERS + ")."		
+			message : "The length of numbers is longer than the maximum value(" + T2W.AR_AR.MAX_NUMBERS + ")."		
 		};	
 	}		
 	
 	// Deal with zero value	
 	if(numbers[T2W.SINGLE_INDEX] === 0 && numbers.length === 1){
-		return T2W.EN_US.DICTIONARY.zero;
+		return T2W.AR_AR.DICTIONARY.zero;
 	}
 	
 	var words = [];
@@ -73,7 +73,7 @@ T2W.EN_US.prototype.translate = function( numbers ) {
  * @param {number} max - length of tokens
  * @return {string}
  */
-T2W.EN_US.prototype._getTrio = function( numbers, index, max){																				
+T2W.AR_AR.prototype._getTrio = function( numbers, index, max){																				
 	var hundred = '';
 	var ten = '';
 	var single = '';
@@ -104,7 +104,7 @@ T2W.EN_US.prototype._getTrio = function( numbers, index, max){
 	}
 	
 	if( index === 0 && index+1 < max && !numbers[ T2W.HUNDRED_INDEX ] && (numbers[T2W.TEN_INDEX] || numbers[T2W.SINGLE_INDEX] )){
-		hundred	 = ' ' + T2W.EN_US.DICTIONARY.delimiters[1] + ' ';		
+		hundred	 = ' ' + T2W.AR_AR.DICTIONARY.delimiters[1] + ' ';		
 	}
 								
 	return hundred + ten + single + radix;		
@@ -118,8 +118,8 @@ T2W.EN_US.prototype._getTrio = function( numbers, index, max){
  * @param {number} index
  * @return {string}
  */
-T2W.EN_US.prototype._getOnes = function( number) {			
-	return T2W.EN_US.DICTIONARY.ones[ number ];			
+T2W.AR_AR.prototype._getOnes = function( number) {			
+	return T2W.AR_AR.DICTIONARY.ones[ number ];			
 };
 
 /**
@@ -129,8 +129,8 @@ T2W.EN_US.prototype._getOnes = function( number) {
  * @param {number} number
  * @return {string}
  */
-T2W.EN_US.prototype._getTens = function( number ) {		
-	return T2W.EN_US.DICTIONARY.tens[ number ];				
+T2W.AR_AR.prototype._getTens = function( number ) {		
+	return T2W.AR_AR.DICTIONARY.tens[ number ];				
 };
 
 /**
@@ -140,8 +140,8 @@ T2W.EN_US.prototype._getTens = function( number ) {
  * @param {number} number
  * @return {string}
  */
-T2W.EN_US.prototype._getTeens = function(number ){
-	return T2W.EN_US.DICTIONARY.teens[ number ];
+T2W.AR_AR.prototype._getTeens = function(number ){
+	return T2W.AR_AR.DICTIONARY.teens[ number ];
 };
 
 /**
@@ -152,10 +152,10 @@ T2W.EN_US.prototype._getTeens = function(number ){
  * @param {number} index
  * @return {string}
  */
-T2W.EN_US.prototype._getRadix = function( numbers, index ) {		
+T2W.AR_AR.prototype._getRadix = function( numbers, index ) {		
 	var radix = '';
 	if( index > 0 && (numbers[T2W.HUNDRED_INDEX] || numbers[T2W.TEN_INDEX] || numbers[T2W.SINGLE_INDEX])){	
-		radix = ' ' + T2W.EN_US.DICTIONARY.radix[ index ];			
+		radix = ' ' + T2W.AR_AR.DICTIONARY.radix[ index ];			
 	}
 			
 	return radix;
