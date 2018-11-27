@@ -13,11 +13,11 @@ T2W.AR_AR = function(){};
 T2W.AR_AR.DICTIONARY = {
 	zero		:"صفر",
 	ones		:[ "", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة", "سبعة", "ثمانية", "تسعة" ],
-	teens		:[ "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ],
-	tens		:[ "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" ],
-	hundred		:"hundred",
-	radix		:["", "thousand", "million"],
-	delimiters	:["-", "and"]
+	teens		:[ "عشرة", "أحد عشر", "اثنا عشر", "ثلاثة عشر", "أربعة عشر", "خمسة عشر", "ستة عشر", "سبعة عشر", "ثمانية عشر", "تسعة عشر" ],
+	tens		:[ "", "", "عشرون", "ثلاثون", "أربعون", "خمسون", "ستة وعشرون", "سبعة وعشرون", "ثمانية وعشرون", "تسعة وعشرون" ],
+	hundred		:"مائة",
+	radix		:["", "ألف", "مليون"],
+	delimiters	:["-", "و"]
 };
 
 /**
