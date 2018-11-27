@@ -3,14 +3,15 @@ It converts a numeric value to words.
 
 You can use it as [standalone js library](https://github.com/Kibo/numbers2words/tree/master/build) or as **Node module**. 
 
-##Example
+## Example
 ```
 var translator = new T2W("EN_US");
 // one thousand two hundred thirty-four
 translator.toWords(1234)
 ```
 
-##Now available locales
+## Now available locales
+ - id_AR (0...999999999)
  - id_ID (0...999999999)
  - de_DE	(0...999999999)
  - en_US	(0...999999999)
