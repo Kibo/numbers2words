@@ -175,7 +175,6 @@ T2W.FR_FR.prototype._getTeens = function(number ){
  * @return {string}
  */
 T2W.FR_FR.prototype._getRadix = function( numbers, index ) {	
-	console.log("Numbers: " + numbers + " Index: " + index);	
 	var radix = '';
 	if( index > 0 && (numbers[T2W.HUNDRED_INDEX] || numbers[T2W.TEN_INDEX] || numbers[T2W.SINGLE_INDEX]))
 		radix = ' ' + T2W.FR_FR.DICTIONARY.radix[ index ];			

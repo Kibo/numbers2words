@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>	
+		<script type="text/javascript" src="../src/polyfill/polyfill.js"></script>
+		<script type="text/javascript" src="../src/numbers2words.js"></script>
+		<script type="text/javascript" src="../src/locales/es_ES.js"></script>	
+		<script>
+			window.onload = function( ) {												
+				test( "toWords", function( ) {									
+					var translator = new T2W("ES_ES");
+					
+					equal( translator.toWords(0), "cero");	
+					equal( translator.toWords(1), "uno");
+					equal( translator.toWords(9), "nueve");														
+					
+					equal( translator.toWords(10), "diez");	
+					equal( translator.toWords(11), "once");
+					equal( translator.toWords(19), "diecinueve");
+					equal( translator.toWords(20), "veinte");
+					equal( translator.toWords(21), "veintiuno");
+					equal( translator.toWords(31), "treinta y uno");
+					equal( translator.toWords(51), "cincuenta y uno");
+					equal( translator.toWords(38), "treinta y ocho");
+					equal( translator.toWords(47), "cuarenta y siete");
+					equal( translator.toWords(99), "noventa y nueve");
+					
+					equal( translator.toWords(100), "cien");
+					equal( translator.toWords(101), "ciento uno");
+					equal( translator.toWords(109), "ciento nueve");
+					equal( translator.toWords(110), "ciento diez");
+					equal( translator.toWords(111), "ciento once");
+					equal( translator.toWords(119), "ciento diecinueve");
+					equal( translator.toWords(199), "ciento noventa y nueve");
+					equal( translator.toWords(999), "novecientos noventa y nueve");
+					
+					equal( translator.toWords(1000), "mil");
+					equal( translator.toWords(1001), "mil uno");
+					equal( translator.toWords(1011), "mil once");
+					equal( translator.toWords(1021), "mil veintiuno");	
+					equal( translator.toWords(2019), "dos mil diecinueve");	
+					equal( translator.toWords(8048), "ocho mil cuarenta y ocho");			
+					equal( translator.toWords(9000), "nueve mil");
+					equal( translator.toWords(9001), "nueve mil uno");
+					equal( translator.toWords(9011), "nueve mil once");
+					equal( translator.toWords(9021), "nueve mil veintiuno");	
+					equal( translator.toWords(9999), "nueve mil novecientos noventa y nueve");
+					
+					equal( translator.toWords(11000), "once mil");
+					equal( translator.toWords(11001), "once mil uno");
+					equal( translator.toWords(11011), "once mil once");
+					equal( translator.toWords(11021), "once mil veintiuno");
+					equal( translator.toWords(12002), "doce mil dos");					
+					equal( translator.toWords(99000), "noventa y nueve mil");
+					equal( translator.toWords(99001), "noventa y nueve mil uno");
+					equal( translator.toWords(99011), "noventa y nueve mil once");
+					equal( translator.toWords(99021), "noventa y nueve mil veintiuno");
+					
+					equal( translator.toWords(1000000), "un millón");
+					equal( translator.toWords(1000001), "un millón uno");
+					equal( translator.toWords(1000011), "un millón once");
+					equal( translator.toWords(1000021), "un millón veintiuno");
+					equal( translator.toWords(1010000), "un millón diez mil");
+					equal( translator.toWords(1010001), "un millón diez mil uno");					
+					equal( translator.toWords(1021001), "un millón veintiún mil uno");					
+					equal( translator.toWords(1110000), "un millón ciento diez mil");
+					equal( translator.toWords(2000040), "dos millones cuarenta");
+					equal( translator.toWords(10000000), "diez millones");
+					equal( translator.toWords(11000000), "once millones");
+					equal( translator.toWords(21000000), "veintiún millones");
+					equal( translator.toWords(999999999), "novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve");														
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<h1 id="qunit-header">ES_ES Locale</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+		</div>
+	</body>
+</html>
