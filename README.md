@@ -14,6 +14,7 @@ translator.toWords(1234)
 
 ## Now available locales
  - id_AR (0...999999999) in progress
+ - fr_FR (0...999999999)
  - id_ID (0...999999999)
  - it_IT (0...999999999)
  - de_DE	(0...999999999)
