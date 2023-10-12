@@ -1,1 +1,6 @@
-node_modules
+.project
+node_modules/*
+logs/*
+.grunt/*
+package-lock.json
+.env

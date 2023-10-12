@@ -1,29 +1,34 @@
 {
 	"name": "numbers2words",
 	"description": "Numbers to words converter.",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"bugs": {
 		"url": "https://github.com/Kibo/numbers2words/issues"
 	},
 	"author": "Tomas Jurman <tomasjurman@gmail.com>",
 	"license": "MIT",
-	"keywords": ["number", "word", "converter"],
+	"keywords": [
+		"number",
+		"word",
+		"converter"
+	],
 	"main": "./build/numbers2words.min",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Kibo/numbers2words.git"
-	},
-	"devDependencies": {
-		"grunt": "^0.4.4",
-		"grunt-contrib-jshint": "~0.6.3",
-		"grunt-contrib-uglify": "~0.2.2",
-		"grunt-contrib-concat": "^0.4.0",
-		"grunt-contrib-qunit": "^0.4.0"
 	},
 	"engines": {
 		"node": "*"
 	},
 	"scripts": {
 		"test": "grunt test"
+	},
+	"dependencies": {	
+	    "grunt": "^1.4.1",
+	    "grunt-cli": "^1.3.2",
+	    "grunt-contrib-concat": "^2.1.0",
+	    "grunt-contrib-jshint": "^3.2.0",
+	    "grunt-contrib-qunit": "^8.0.1",
+	    "grunt-contrib-uglify": "^5.2.2"
 	}
 }
