@@ -86,7 +86,7 @@ T2W.prototype.toWords = function( number ){
 		};
 	}
 				
-	return this.translate( this.tokenize(number, this._tokenLength));
+	return this.translate( this.tokenize(number, this._tokenLength), Math.sign(number) > 0);
 };
 
 /**

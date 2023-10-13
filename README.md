@@ -19,7 +19,7 @@ translator.toWords(1234)
  - id_ID (0...999999999)
  - it_IT (0...999999999)
  - de_DE	(0...999999999)
- - en_US	(0...999999999)
+ - en_US	(-999999999...999999999)
  - cs_CZ	(0...999999999)
  
 **You can implement your locale vocabulary**. For additional locale send pull request with locale file + tests.
